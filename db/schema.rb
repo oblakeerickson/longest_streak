@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110144144) do
+ActiveRecord::Schema.define(version: 20140123134207) do
 
   create_table "contributions", force: true do |t|
     t.date     "contributed_on"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20140110144144) do
     t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "github_id"
   end
+
+  add_index "users", ["github_id"], name: "index_users_on_github_id", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end
