@@ -11,6 +11,8 @@ describe User do
   it { should respond_to(:github_id) }
   it { should respond_to(:username) }
 
+  it { should be_valid }
+
   describe "when github_id is not present" do
     before { @user.github_id = " " }
     it { should_not be_valid }
