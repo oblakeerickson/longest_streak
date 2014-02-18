@@ -1,9 +1,11 @@
 class Connection
+
   def initialize
     username = get_username
     password = get_password
     @client = Octokit::Client.new :login => username, :password => password
   end
+
   def username
     @client.login
   end
@@ -31,6 +33,7 @@ class Connection
   def get_username
     LongestStreak1::Application.config.github_username
   end
+
   def get_password
     LongestStreak1::Application.config.github_password
   end

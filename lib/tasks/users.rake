@@ -1,13 +1,20 @@
 namespace :users do
   desc "Fetch users from GitHub"
   task populate: :environment do
-    user = User.new
+    last = 0
+    rate_limit = 5000
     connection = Connection.new
     puts connection.username
-    list = connection.user_list(0)
-    list.each do |u|
-      my_user = GithubUser.new(u)
-      my_user.print
+    while rate_limit > 10 do
+      list = connection.user_list(last)
+      list.each do |u|
+        user = User.new
+        my_user = GithubUser.new(u)
+        user = User.new(username: my_user.login, github_id: my_user.id)
+        user.save
+        my_user.print
+        last = connection.last_user list
+      end
     end
   end
 end
