@@ -1,12 +1,12 @@
 class Contribution
 
   def initialize(username)
-    data = calendar_data username
+    @data = calendar_data username
   end
 
   def longest_streak
-    if data != "error"
-      data_string = remove_head_and_tail_brackets data
+    if @data != "error"
+      data_string = remove_head_and_tail_brackets @data
       data_arr = to_array data_string
       daily_contributions = get_daily_contributions data_arr
       calc_longest_streak daily_contributions
