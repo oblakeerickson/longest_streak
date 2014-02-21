@@ -18,3 +18,4 @@
 .secret
 .username
 .password
+/config/database.yml

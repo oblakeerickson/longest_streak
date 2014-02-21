@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140219134245) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contributions", force: true do |t|
     t.date     "contributed_on"
     t.integer  "contribution_count"
@@ -29,8 +32,8 @@ ActiveRecord::Schema.define(version: 20140219134245) do
     t.integer  "longest_streak"
   end
 
-  add_index "users", ["github_id"], name: "index_users_on_github_id", unique: true
-  add_index "users", ["longest_streak"], name: "index_users_on_longest_streak"
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["github_id"], name: "index_users_on_github_id", unique: true, using: :btree
+  add_index "users", ["longest_streak"], name: "index_users_on_longest_streak", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
