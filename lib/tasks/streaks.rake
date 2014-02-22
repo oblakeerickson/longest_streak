@@ -3,7 +3,8 @@ namespace :streaks do
   task populate: :environment do
     rate_limit = 5000
     connection = Connection.new
-    User.find_each(batch_size: 10) do |user|
+    last = User.where.not(longest_streak: nil).maximum(:id)
+    User.find_each(start: last, batch_size: 10) do |user|
       contribution = Contribution.new(user.username)
       user.update_attribute(:longest_streak, contribution.longest_streak)
     end
