@@ -6,7 +6,6 @@ namespace :streaks do
     User.find_each(batch_size: 10) do |user|
       contribution = Contribution.new(user.username)
       user.update_attribute(:longest_streak, contribution.longest_streak)
-      puts "#{user.username} | #{user.longest_streak}"
     end
   end
 end
