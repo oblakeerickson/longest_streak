@@ -11,15 +11,17 @@
     </tr>
   </thead>
   <tbody>
-    <% @users.each.with_index(1) do |user, i| %>
-      <tr>
-        <td><%= i %></td>
-        <td>
-          <%= link_to user.username, "https://github.com/#{user.username}" %>
-        </td>
-        <td><%= user.longest_streak %></td>
-        <td><%= user.updated_at %></td>
-      </tr>
+    <% cache("top_users", action_suffix: 'top_users', :expires_in => 1.day) do %>
+      <% @users.each.with_index(1) do |user, i| %>
+        <tr>
+          <td><%= i %></td>
+          <td>
+            <%= link_to user.username, "https://github.com/#{user.username}" %>
+          </td>
+          <td><%= user.longest_streak %></td>
+          <td><%= user.updated_at %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -27,8 +29,14 @@
 
 <h3>Stats: </h3>
 <ul>
-  <li># of GitHub users I'm currently tracking: <%= @count %></li>
-  <li># of users I've calculated longest streaks for: <%= @longest_streak_count %></li>
+  <li>
+    # of GitHub users I'm currently tracking:
+    <%= @count %>
+  </li>
+  <li>
+    # of users I've calculated longest streaks for:
+    <%= @longest_streak_count %>
+  </li>
 </ul>
 
 <p>
