@@ -1,0 +1,2 @@
+module StreaksHelper
+end
