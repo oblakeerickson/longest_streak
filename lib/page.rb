@@ -5,7 +5,7 @@ class Page
     if chunk != nil
       @streak = get_streak(chunk)
     else
-      @streak = 0
+      @streak = "error"
     end
   end
 
@@ -24,7 +24,7 @@ class Page
   end
 
   def chunk(page)
-    location = page.index '<div class="col contrib-streak">'
+    location = page.index '<div class="table-column contrib-streak">'
     if location != nil
       page[location..location+100]
     end

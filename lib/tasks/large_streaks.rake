@@ -5,7 +5,9 @@ namespace :large_streaks do
     connection = Connection.new
     User.where('longest_streak > 365').find_each(batch_size: 10) do |user|
       page = Page.new(user.username)
-      user.update_attribute(:longest_streak, page.streak)
+      if page.streak != "error"
+        user.update_attribute(:longest_streak, page.streak)
+      end
     end
   end
 end
