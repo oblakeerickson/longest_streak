@@ -1,3 +1,50 @@
-// Place all the styles related to the Streaks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  text-align: center;
+}
+
+.twitter-share-button {
+  float: right;
+  margin-top: 20px;
+}
+
+.hero h1 {
+  margin-top: 10%;
+  font-size: 5em;
+  color: $white;
+}
+
+.below-hero {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+.tagline {
+  text-align: center;
+  height: 100px;
+}
+
+.pretty-table {
+  width: 100%;
+}
+
+.pretty-table td,
+.pretty-table th {
+  padding: 20px; 
+}
+
+.pretty-table thead tr > th { text-align: left; }
+
+.pretty-table tbody {
+  padding-top: 10px;
+}
+
+.pretty-table tbody tr:nth-child(odd) {
+  background-color: #fafafa; 
+}
