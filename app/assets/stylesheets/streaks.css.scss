@@ -4,7 +4,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  
   text-align: center;
 }
 
@@ -39,7 +38,9 @@
   padding: 20px; 
 }
 
-.pretty-table thead tr > th { text-align: left; }
+.pretty-table thead tr > th {
+  text-align: left;
+}
 
 .pretty-table tbody {
   padding-top: 10px;
