@@ -22,6 +22,9 @@ gem 'octokit'
 gem 'json'
 gem 'pg'
 
+gem 'clrs'
+gem 'normalize-rails'
+
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end

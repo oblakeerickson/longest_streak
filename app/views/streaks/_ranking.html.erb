@@ -1,0 +1,24 @@
+<table class="pretty-table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th></th>
+      <th>Longest_Streak</th>
+      <th>Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cache("top_users", action_suffix: 'top_users', :expires_in => 1.day) do %>
+      <% @users.each.with_index(1) do |user, i| %>
+        <tr>
+          <td><%= i %></td>
+          <td>
+            <%= link_to user.username, "https://github.com/#{user.username}" %>
+          </td>
+          <td><%= user.longest_streak %></td>
+          <td>Updated <%= time_ago_in_words user.updated_at %> ago</td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
