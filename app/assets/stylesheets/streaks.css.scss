@@ -1,3 +1,5 @@
+@import "clrs";
+
 .hero {
   position: absolute;
   top: 0;
@@ -35,7 +37,7 @@
 
 .pretty-table td,
 .pretty-table th {
-  padding: 20px; 
+  padding: 20px;
 }
 
 .pretty-table thead tr > th {
@@ -47,5 +49,5 @@
 }
 
 .pretty-table tbody tr:nth-child(odd) {
-  background-color: #fafafa; 
+  background-color: #fafafa;
 }
