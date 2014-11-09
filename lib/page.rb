@@ -24,13 +24,14 @@ class Page
   end
 
   def chunk(page)
-    location = page.index '<div class="table-column contrib-streak">'
+    location = page.index '<span class="text-muted">Longest streak'
     if location != nil
       page[location..location+100]
     end
   end
+
   def get_streak(chunk)
-    location = chunk.index 'days'
+    location = chunk.index 'day'
     @streak = chunk[location-4..location-2]
     if @streak[0,1] == '"'
       @streak[0] = ''
