@@ -7,7 +7,9 @@ namespace :streaks do
     User.find_each(start: last, batch_size: 10) do |user|
       page = Page.new(user.username)
       if page.streak != "error"
-        user.update_attribute(:longest_streak, page.streak)
+        if page.streak.to_i >= user.longest_streak
+          user.update_attribute(:longest_streak, page.streak)
+        end
       end
     end
   end
