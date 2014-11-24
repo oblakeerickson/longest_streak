@@ -32,13 +32,8 @@ class Page
 
   def get_streak(chunk)
     location = chunk.index 'day'
-    @streak = chunk[location-4..location-2]
-    if @streak[0,1] == '"'
-      @streak[0] = ''
-    end
-    if @streak[0,1] == '>'
-      @streak[0] = ''
-    end
-    @streak
+    string_to_match = chunk[location-5..location-2]
+    regex = /\d+/
+    regex.match(string_to_match).to_s
   end
 end
