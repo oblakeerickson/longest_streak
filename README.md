@@ -9,13 +9,15 @@ Who has the Longest Streak on GitHub?
 - make sure you have postgresql installed and the database server is running
 - create a database.yml file with the follow contents:
 
-    development:
-      adapter: postgresql
-      encoding: unicode
-      database: longest_streak_development
-      host: localhost
-      pool: 5
-      timeout: 5000
+  ```yaml
+  development:
+    adapter: postgresql
+    encoding: unicode
+    database: longest_streak_development
+    host: localhost
+    pool: 5
+    timeout: 5000
+  ```
 
 - run `rake db:create`
 - run `rake db:migrate`
